@@ -1,0 +1,87 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://kit.fontawesome.com/cb792c0850.js" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <title>H&N Wedding Website</title>
+    <link rel="stylesheet" href="{% static 'css/app.css' %}">
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+
+</head>
+
+<body>
+    <!-- Navbar at the top -->
+    {% include 'navigation.html' %}
+    <!-- Image Carousel -->
+    <div id="imageCarousel" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="{% static 'images/pic1.png' %}" class="d-block w-100" alt="Image 1">
+            </div>
+            <div class="carousel-item">
+                <img src="{% static 'images/pic2.png' %}" class="d-block w-100" alt="Image 2">
+            </div>
+            <div class="carousel-item">
+                <img src="{% static 'images/pic3.png' %}" class="d-block w-100" alt="Image 3">
+            </div>
+            <div class="carousel-item">
+                <img src="{% static 'images/pic4.png' %}" class="d-block w-100" alt="Image 4">
+            </div>
+            <div class="carousel-item">
+                <img src="{% static 'images/pic5.png' %}" class="d-block w-100" alt="Image 5">
+            </div>
+            <div class="carousel-item">
+                <img src="{% static 'images/pic6.JPG' %}" class="d-block w-100" alt="Image 6">
+            </div>
+        </div>
+    
+        <button class="carousel-control-prev" type="button" data-bs-target="#imageCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#imageCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>    
+
+    <!-- Main content section after the carousel -->
+    <div style="font-family: 'Times New Roman', Times, serif;"class="container-fluid mt-5 pt-5">
+        <div class="row">
+            <main role="main" class="col-md-12 px-md-4">
+                <div class="text-center">
+                    <h2 class="display-4">Welcome to Hiral and Nihar's Wedding Celebration!</h2>
+                    <p class="lead">Hiral and Nihar are thrilled to have everyone here to celebrate this unforgettable day.</p>
+                    <hr class="my-4">
+                    <p>
+                        The bride and groom have a special request for all the guests: they would love for everyone to capture the moments that make this day unique! 📸✨
+                    </p>
+                    <p class="lead">
+                        Guests are invited to take as many photos as possible throughout the wedding events, from the garba to the reception. All memories are meant to be shared!
+                    </p>
+                    <p>
+                        To upload and view the photos, simply navigate over to the Explore tab at the top of the page. It’s an easy way for everyone to contribute and enjoy the moments through each other’s eyes.
+                    </p>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <!-- Footer section -->
+    {% include 'footer.html' %}
+
+    <script src="{% static 'js/app.js'%}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

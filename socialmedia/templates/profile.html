@@ -1,0 +1,99 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://kit.fontawesome.com/cb792c0850.js" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <title>{{ user_profile.user }}</title>
+    <link rel="stylesheet" href="{% static 'css/profile.css' %}">
+</head>
+
+<body>
+    <!-- Navbar -->
+    {% include 'navigation.html' %}
+    {% include 'edit_profile.html' %}
+
+
+    <div class="container py-5">
+        <div class="row justify-content-center">
+            <div style="margin-top: 100px;" class="col-lg-9 col-xl-7">
+                <div class="card">
+                    <div class="rounded-top text-white d-flex flex-row align-items-center"
+                        style="background: black; height: 200px; padding: 20px;">
+                        
+                        <!-- Profile Image Container -->
+                        <div class="profile-image-container">
+                            <img src="{{ user_profile.profileimg.url }}" alt="Profile Picture">
+                        </div>
+
+                        <div class="ms-3">
+                            <h5>@{{ user_profile.user }}</h5>
+                            <p><i class="fa-solid fa-location-dot"></i> {{ user_profile.location }}</p>
+                            
+                            {% if user == user_profile.user %}
+                            <button type="button" class="btn btn-outline-light btn-sm" data-bs-toggle="modal"
+                                data-bs-target="#exampleModal1">
+                                Edit profile
+                            </button>
+                            {% endif %}
+                        </div>
+                    </div>
+
+                    <div class="card-body p-4">
+                        <!-- About Section -->
+                        <div class="mb-5">
+                            <p class="lead fw-normal mb-1">About</p>
+                            <div class="p-3 bg-light rounded">
+                                <p class="font-italic mb-1">{{ user_profile.bio }}</p>
+                            </div>
+                        </div>
+
+                        <!-- Post Count -->
+                        <div class="mb-5 d-flex align-items-center">
+                            <p class="h5 me-2">{{ user_post_length }}</p>
+                            <p style="margin-top: -8px;"class="lead fw-normal mb-0">
+                                {% if user_post_length == 1 %} Post {% else %} Posts {% endif %}
+                            </p>
+                        </div>
+
+                        <!-- Image Grid -->
+                        <div class="image-grid">
+                            {% for pos in user_posts %}
+                            <div class="card image-item">
+                                {% if pos.image %}
+                                    <img src="{{ pos.image.url }}" alt="Post Image" class="post-image">
+                                {% else %}
+                                    <p>No image available</p> 
+                                {% endif %}
+                                <div class="card-body text-center">
+                                    <h5 style="font-size: 15px;"class="card-title">{{ pos.caption }}</h5>
+                                    {% if user == user_profile.user %}
+                                    <a href="#" class="text-danger delete-post" data-post-id="{{ pos.id }}">
+                                        <i class="fa-solid fa-trash"></i>
+                                    </a>                                    
+                                    {% endif %}
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="{% static 'js/profile.js' %}"></script>
+    <script src="{% static 'js/app.js' %}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+    </script>
+</body>
+
+</html>
