@@ -47,9 +47,9 @@ def loginn(request):
         
  
         invalid="Invalid Credentials"
-        return render(request, 'loginn.html',{'invalid':invalid})
+        return render(request, 'index.html',{'invalid':invalid})
                
-  return render(request, 'loginn.html')
+  return render(request, 'index.html')
 
 @login_required(login_url='/loginn')
 def logoutt(request):

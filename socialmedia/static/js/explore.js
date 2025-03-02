@@ -43,7 +43,12 @@ document.addEventListener("DOMContentLoaded", function() {
                     let commentsList = document.getElementById(`comments-list-${postId}`);
                     let newComment = document.createElement("li");
                     newComment.setAttribute("id", `comment-${data.id}`);
-                    newComment.innerHTML = `<strong>@${data.user}</strong>: ${data.text} 
+                    newComment.innerHTML = `
+                        <strong>
+                            <a href="/profile/${data.user}" style="text-decoration: none; color: black;">
+                                @${data.user}:
+                            </a>
+                        </strong> ${data.text}
                         <button class="delete-comment-btn" data-comment-id="${data.id}" style="background: none; border: none; cursor: pointer; color: #fec2cb;">
                             <i class="fa-solid fa-trash"></i>
                         </button>`;

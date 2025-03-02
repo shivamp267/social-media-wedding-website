@@ -41,7 +41,7 @@
                             <p>No image available</p> 
                         {% endif %}
                         <div class="post-content">
-                            <p style="color: black; font-family: 'Times New Roman', Times, serif; font-size: 20px"><a href="/profile/{{pos.user}}" style="color: black; text-decoration: none;">@{{pos.user}}</a>: {{pos.caption}}</p>
+                            <p style="color: black; font-family: 'Times New Roman', Times, serif; font-size: 20px"><a href="/profile/{{pos.user}}" style="color: black; text-decoration: none;"><strong>@{{pos.user}}</strong></a>: {{pos.caption}}</p>
                             {% load tz %}
                             {% timezone "America/New_York" %}
                                 <p style="color: rgb(0, 0, 0); font-family: 'Times New Roman', Times, serif; font-size: 18px;"class="date-text">{{ pos.created_at|date:"n/d/Y g:i A" }}</p>
@@ -64,11 +64,15 @@
 
                              <!-- Comments section -->
                             <div class="comments-section">
-                                <h5>Comments:</h5>
+                                <h5 style="font-family: 'Times New Roman', Times, serif; font-size: 23px;">Comments</h5>
                                 <ul id="comments-list-{{ pos.id }}">
                                     {% for comment in pos.comments.all %}
                                     <li id="comment-{{ comment.id }}">
-                                        <strong>@{{ comment.user.username }}</strong>: {{ comment.text }}
+                                        <strong>
+                                            <a href="/profile/{{ comment.user.username }}" style="text-decoration: none; color: black;">
+                                                @{{ comment.user.username }}:
+                                            </a>
+                                        </strong> {{ comment.text }}                                        
                                         {% if comment.user == request.user %}
                                             <button class="delete-comment-btn" data-comment-id="{{ comment.id }}" style="background: none; border: none; cursor: pointer; color: #fec2cb;">
                                                 <i class="fa-solid fa-trash"></i>
@@ -81,7 +85,7 @@
                                 <form class="comment-form" data-post-id="{{ pos.id }}">
                                     {% csrf_token %}
                                     <input type="text" name="comment_text" class="comment-input" placeholder="Write a comment..." required>
-                                    <button type="submit" style="background-color: #fec2cb; color: white;">Comment</button>
+                                    <button id="comment-btn" class="btn"type="submit">Comment</button>
                                 </form>
                             </div>                                                       
                         </div>
