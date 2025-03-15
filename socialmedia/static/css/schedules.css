@@ -33,3 +33,8 @@ body {
 hr {
     margin: 40px 0;
 }
+
+.btn-dark {
+    color: white !important;
+}
+
