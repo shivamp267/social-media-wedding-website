@@ -1,0 +1,115 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://kit.fontawesome.com/cb792c0850.js" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/explore.css' %}">
+
+    <title>H&N Wedding</title>
+    <link rel="stylesheet" href="{% static 'css/app.css' %}">
+</head>
+
+<body>
+    <!-- Navbar at the top -->
+    {% include 'navigation.html' %}
+
+    <div class="container-fluid mt-5 pt-5">
+        <div class="row">
+            <div class="col-md-12 text-center mb-4">
+                <!-- Create Post button -->
+                <button class="btn" style="font-size: 18px; background-color: #fec2cb; color: white; margin-top: 70px; font-family: 'Times New Roman', Times, serif;" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    <i class="fa-solid fa-circle-plus"></i> Create Post
+                </button>                
+            </div>
+            <main role="main" class="col-md-12 px-md-4">
+                {% include "modal.html" %}
+
+                <!-- Explore posts code -->
+                <div class="post-container">
+                    {% for pos in post %}
+                    <div class="post-card">
+                        {% if pos.image %}
+                            <img src="{{ pos.image.url }}" alt="Post Image" class="post-image">
+                        {% else %}
+                            <p>No image available</p> 
+                        {% endif %}
+                        <div class="post-content">
+                            <p style="color: black; font-family: 'Times New Roman', Times, serif; font-size: 20px"><a href="/profile/{{pos.user}}" style="color: black; text-decoration: none;"><strong>@{{pos.user}}</strong></a>: {{pos.caption}}</p>
+                            {% load tz %}
+                            {% timezone "America/New_York" %}
+                                <p style="color: rgb(0, 0, 0); font-family: 'Times New Roman', Times, serif; font-size: 18px;"class="date-text">{{ pos.created_at|date:"n/d/Y g:i A" }}</p>
+                            {% endtimezone %}
+                            <div class="like-button-container">
+                                <button style="background-color: #fec2cb; color: white; font-family: 'Times New Roman', Times, serif; font-size: 15px;" class="btn like-btn" data-post-id="{{pos.id}}">
+                                    <i class="fa-solid fa-thumbs-up me-1"></i> <span>Like</span>
+                                </button>
+                                <p style="color: rgb(0, 0, 0); font-family: 'Times New Roman', Times, serif; font-size: 18px;" id="like-count-{{pos.id}}">
+                                    {% if pos.no_of_likes == 0 %}
+                                        0
+                                    {% elif pos.no_of_likes == 1 %}
+                                        Liked by 1 person
+                                    {% else %}
+                                        Liked by {{pos.no_of_likes}} people
+                                    {% endif %}
+                                </p>
+                            </div>
+                            <br>
+
+                             <!-- Comments section -->
+                            <div class="comments-section">
+                                <h5 style="font-family: 'Times New Roman', Times, serif; font-size: 23px;">Comments</h5>
+                                <ul id="comments-list-{{ pos.id }}">
+                                    {% for comment in pos.comments.all %}
+                                    <li id="comment-{{ comment.id }}">
+                                        <strong>
+                                            <a href="/profile/{{ comment.user.username }}" style="text-decoration: none; color: black;">
+                                                @{{ comment.user.username }}:
+                                            </a>
+                                        </strong> {{ comment.text }}                                        
+                                        {% if comment.user == request.user %}
+                                            <button class="delete-comment-btn" data-comment-id="{{ comment.id }}" style="background: none; border: none; cursor: pointer; color: #fec2cb;">
+                                                <i class="fa-solid fa-trash"></i>
+                                            </button>                                        
+                                        {% endif %}
+                                    </li>
+                                    {% endfor %}
+                                </ul>
+                            
+                                <form class="comment-form" data-post-id="{{ pos.id }}">
+                                    {% csrf_token %}
+                                    <input type="text" name="comment_text" class="comment-input" placeholder="Write a comment..." required>
+                                    <button id="comment-btn" class="btn"type="submit">Comment</button>
+                                </form>
+                            </div>                                                       
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </main>
+        </div>
+    </div>
+    <script src="{% static 'js/app.js'%}"></script>
+    <script src="{% static 'js/explore.js' %}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
+
+<style>
+    body {
+        background-image: url("{% static 'images/explorepage.jpg' %}");
+        background-size: cover;
+        background-position: center center;
+        background-repeat: no-repeat;
+        height: 100%;
+    }
+</style>

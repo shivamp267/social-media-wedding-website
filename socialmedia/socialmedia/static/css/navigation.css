@@ -1,0 +1,38 @@
+.navbar {
+    background-color: #ffffff;
+    color: black;
+}
+
+.navbar-nav a {
+    color: black;
+    padding: 15px;
+}
+
+.navbar-nav .nav-item .nav-link:hover {
+    text-decoration: underline;
+}
+
+.navbar-nav .active {
+    font-weight: bold;
+}
+
+.nav-link {
+    color: black;
+}
+
+.navbar-nav .nav-link {
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: 590;
+    font-size: 20px;
+    letter-spacing: 1px; 
+}
+
+.navbar-nav {
+    margin-left: 0px;
+    margin-right: 260px;
+}
+
+a {
+    color: inherit !important;
+    text-decoration: none !important;
+}

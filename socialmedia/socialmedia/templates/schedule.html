@@ -1,0 +1,141 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://kit.fontawesome.com/cb792c0850.js" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <title>H&N Wedding Schedule</title>
+    <link rel="stylesheet" href="{% static 'css/app.css' %}">
+    <link rel="stylesheet" href="{% static 'css/schedules.css' %}">
+</head>
+
+<body>
+    {% include 'navigation.html' %}    
+    <div class="text-center mt-4">
+        <img src="{% static 'images/schedulephoto.png' %}" class="img-fluid" style="max-width: 420px; margin-top: 100px;">
+    </div>
+
+    <div class="container mt-5">
+        <!-- Garba -->
+        <br>
+        <br>
+        <br>
+        <div class="event">
+            <h2 class="event-date">Friday, June 27, 2025</h2>
+            <div class="row align-items-center">
+                <div class="col-md-4 text-center">
+                    <h3 class="event-title">Raas-Garba</h3>
+                    <p class="event-time">6:00 pm</p>
+                </div>
+                <div class="col-md-8">
+                    <p><strong>Bell Works</strong><br>
+                        <a href="https://maps.google.com/?q=101+Crawfords+Corner+Rd,+Holmdel,+NJ+07733" target="_blank">
+                            101 Crawfords Corner Rd, Holmdel, NJ 07733
+                        </a>
+                    </p>
+                    <p>Attire: Indian Traditional - Vibrant & Colorful (Optional Bandhani & Leheriya)</p>
+                    <p><em>No boxed gifts.</em></p>
+                    <a href="https://maps.google.com/?q=101+Crawfords+Corner+Rd,+Holmdel,+NJ+07733" class="btn btn-dark">Map</a>
+                </div>
+            </div>
+        </div>
+
+        <hr>
+
+        <!-- Hiral Vidhi -->
+        <div class="event">
+            <h2 class="event-date">Saturday, June 28, 2025</h2>
+            <div class="row align-items-center">
+                <div class="col-md-4 text-center">
+                    <h3 class="event-title">Hiral's Vidhi</h3>
+                    <p class="event-time">10:00 am</p>
+                </div>
+                <div class="col-md-8">
+                    <p><strong>Royal Albert's Palace - Maharaja Hall</strong><br>
+                        <a href="https://maps.google.com/?q=1050+King+George+Rd,+Fords,+NJ+08863" target="_blank">
+                            1050 King George Rd, Fords, NJ 08863
+                        </a>
+                    </p>
+                    <p>Attire: Indian Traditional with Hues of Yellow & Blue</p>
+                    <p><em>No boxed gifts.</em></p>
+                    <a href="https://maps.google.com/?q=1050+King+George+Rd,+Fords,+NJ+08863" class="btn btn-dark">Map</a>
+                </div>
+            </div>
+        </div>
+        <br>
+        <br>
+        <!-- Nihar Vidhi -->
+        <div class="event">
+            <div class="row align-items-center">
+                <div class="col-md-4 text-center">
+                    <h3 class="event-title">Nihar's Vidhi</h3>
+                    <p class="event-time">1:00 pm</p>
+                </div>
+                <div class="col-md-8">
+                    <p><strong>Patel Residence</strong><br>
+                        <a href="https://www.google.com/maps/search/?api=1&query=40.17455380,-74.92266650&query_place_id=ChIJZZrwvQBTwYkR2je_FQ60GQU" target="_blank">
+                            Langhorne, PA
+                        </a>
+                    </p>
+                    <p>Attire: Indian Traditional with Hues of Yellow & Pink</p>
+                    <p><em>No boxed gifts.</em></p>
+                    <a href="https://www.google.com/maps/search/?api=1&query=40.17455380,-74.92266650&query_place_id=ChIJZZrwvQBTwYkR2je_FQ60GQU" class="btn btn-dark">Map</a>
+                </div>
+            </div>
+        </div>
+
+        <hr>
+
+        <!-- Wedding -->
+        <div class="event">
+            <h2 class="event-date">Sunday, June 29, 2025</h2>
+            <div class="row align-items-center">
+                <div class="col-md-4 text-center">
+                    <h3 class="event-title">Wedding</h3>
+                    <p class="event-time">8:30 am</p>
+                </div>
+                <div class="col-md-8">
+                    <p><strong>The Addison Park</strong><br>
+                        <a href="https://www.google.com/maps/search/?api=1&query=40.44328010,-74.22831990&query_place_id=ChIJ0Y8C50_Lw4kR7PiOXOwq7yA" target="_blank">
+                            150 NJ-35, Keyport, NJ 07735
+                        </a>
+                    </p>
+                    <p>Attire: Indian Traditional (Please avoid wearing red)</p>
+                    <p><em>No boxed gifts.</em></p>
+                    <a href="https://www.google.com/maps/search/?api=1&query=40.44328010,-74.22831990&query_place_id=ChIJ0Y8C50_Lw4kR7PiOXOwq7yA" class="btn btn-dark">Map</a>
+                </div>
+            </div>
+        </div>
+        <br>
+        <br>
+        <!-- Reception -->
+        <div class="event">
+            <div class="row align-items-center">
+                <div class="col-md-4 text-center">
+                    <h3 class="event-title">Reception</h3>
+                    <p class="event-time">6:00 pm</p>
+                </div>
+                <div class="col-md-8">
+                    <p><strong>The Addison Park</strong><br>
+                        <a href="https://www.google.com/maps/search/?api=1&query=40.44328010,-74.22831990&query_place_id=ChIJ0Y8C50_Lw4kR7PiOXOwq7yA" target="_blank">
+                            150 NJ-35, Keyport, NJ 07735
+                        </a>
+                    </p>
+                    <p>Attire: Black Tie/Indian Formal - Hues of Jewel Tones</p>
+                    <p><em>No boxed gifts.</em></p>
+                    <a href="https://www.google.com/maps/search/?api=1&query=40.44328010,-74.22831990&query_place_id=ChIJ0Y8C50_Lw4kR7PiOXOwq7yA" class="btn btn-dark">Map</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer section -->
+    {% include 'footer.html' %}
+</body>

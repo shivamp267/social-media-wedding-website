@@ -1,0 +1,107 @@
+.profile-pic {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.post-card {
+    max-width: 500px;
+    margin: 20px auto; 
+    padding: 15px;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.2s ease-in-out;
+}
+
+.post-image {
+    max-width: 100%;
+    height: auto; 
+    display: block;
+    margin: 0 auto;
+    border-radius: 8px;
+}
+
+.post-content {
+    padding: 10px;
+    text-align: left;
+}
+
+.post-content h5 {
+    font-size: 1.25em;
+}
+
+.post-content p {
+    font-size: 1em;
+    color: #555;
+}
+
+.like-button-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.like-button-container .btn {
+    font-size: 0.9em;
+}
+
+.container {
+    max-width: 1000px;
+    margin-top: 150px;
+}
+
+.post-container {
+    overflow-y: scroll;
+    max-height: 80vh;
+    padding: 10px;
+}
+
+.post-profile-pic {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+}
+
+.comments-section ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 18px;
+}
+
+.comments-section li {
+    margin-bottom: 5px;
+}
+
+.comment-form {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.comment-input {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 18px;
+    height: 35px;
+    color: black;
+}
+
+#comment-btn {
+    background-color: #fec2cb; 
+    color: white; 
+    font-family: 'Times New Roman', Times, serif; 
+    font-size: 16px;
+    height: 35px;
+    border-radius: 5px;
+}
+
+.delete-comment-btn {
+    align-items: center;
+    margin-left: -5px;
+}
+
